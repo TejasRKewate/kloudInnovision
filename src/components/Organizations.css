@@ -19,8 +19,8 @@
   --org-border: #e5e7eb;
   --org-card-border: #eef2f7;
 
-  --org-card-w: 211px;
-  --org-card-h: 116px;
+  --org-card-w: 200px;
+  --org-card-h: 100px;
   --org-space: 20px;
   --org-pad-y: 12px;
   --org-pad-x: 16px;
@@ -189,7 +189,8 @@
 @media (hover: hover) and (pointer: fine) {
   .organizations__item img:hover {
     transform: translateY(-3px);
-
+  border: 1px  var(--org-card-border);
+  border-radius: var(--org-radius);
     border-color: #d6e4fb;
     border-color: color-mix(
       in srgb,

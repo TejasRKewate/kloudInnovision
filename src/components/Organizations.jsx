@@ -1,57 +1,73 @@
 import React from "react";
 import "./Organizations.css";
 
+import dockair from '../assets/images/cropped-iwez4fmwyt8y6gydkhlc-fotor-2025101718141-1-100x100.webp'
 import biologo from "../assets/images/bio-logo-image-removebg-preview.png";
-import desividesi from "../assets/desividesi.webp";
-import qrslogo from "../assets/qrslogo.webp";
-import meraveg from "../assets/meraveg.webp";
-import marine from "../assets/marine.webp";
-import yaaymina from "../assets/yaaymina-logo.webp";
-import organic from "../assets/organic.webp";
-import bollywoodfest from "../assets/bollywoodfest.webp";
-import digitalID from "../assets/digitalID.webp";
-import nexus from "../assets/nexus.webp";
-import zainnew from "../assets/zainnew.webp";
-import tikona from "../assets/tikona.webp";
-import sigma from "../assets/sigma.webp";
-import sanjivani from "../assets/sanjivani_group_logo_white_bg.webp";
-import hijama from "../assets/hijama.webp";
-import justbookus from "../assets/justbookus.webp";
-import reSound from "../assets/re_sound.webp";
-import rishta from "../assets/rishta.webp";
-import shifa from "../assets/shifa.webp";
-import parkar from "../assets/parkar.webp";
-import vhalimos from "../assets/VHALimos.webp";
-import paiwala from "../assets/paiwala.webp";
-import logo22 from "../assets/Logo22.webp";
 import SahanaHome from '../assets/images/SahanaHomes.webp'
+import aceWFM from '../assets/images/Ace-WFM-Logo-Final-removebg-preview-1.png'
+import bookyourresearch from '../assets/images/bookyourresearch.webp'
+import caudate from '../assets/images/caudate.webp'
+import communicare from '../assets/images/communicure.jpg'
+import dclLogo from '../assets/images/dclogo.webp'
+import dhLogo from '../assets/images/DH.png'
+import dolocevita from '../assets/images/dolocevita.png'
+import Mpower from '../assets/images/Mpower Logo-04.svg'
+import navHealth from '../assets/images/navHealthClinic.png'
+import paiwala from '../assets/images/paiwalainteriors.webp'
+import pawpaa from '../assets/images/pawpaa.webp'
+import urbenAcers from '../assets/images/urban_acres.png'
+
+// import biologo from "../assets/images/bio-logo-image-removebg-preview.png";
+// import desividesi from "../assets/desividesi.webp";
+// import qrslogo from "../assets/qrslogo.webp";
+// import meraveg from "../assets/meraveg.webp";
+// import marine from "../assets/marine.webp";
+// import yaaymina from "../assets/yaaymina-logo.webp";
+// import organic from "../assets/organic.webp";
+// import bollywoodfest from "../assets/bollywoodfest.webp";
+// import digitalID from "../assets/digitalID.webp";
+// import nexus from "../assets/nexus.webp";
+// import zainnew from "../assets/zainnew.webp";
+// import tikona from "../assets/tikona.webp";
+// import sigma from "../assets/sigma.webp";
+// import sanjivani from "../assets/sanjivani_group_logo_white_bg.webp";
+// import hijama from "../assets/hijama.webp";
+// import justbookus from "../assets/justbookus.webp";
+// import reSound from "../assets/re_sound.webp";
+// import rishta from "../assets/rishta.webp";
+// import shifa from "../assets/shifa.webp";
+// import parkar from "../assets/parkar.webp";
+// import vhalimos from "../assets/VHALimos.webp";
+// import paiwala from "../assets/paiwala.webp";
+// import logo22 from "../assets/Logo22.webp";
+
 
 
 const CLIENTS = [
-  { src: biologo, name: "BioLogo" },
-  { src: desividesi, name: "Desi Videsi" },
-  { src: qrslogo, name: "QRS" },
-  { src: meraveg, name: "Mera Veg" },
-  { src: marine, name: "Marine" },
-  { src: yaaymina, name: "Yaaymina" },
-  { src: organic, name: "Organic" },
-  { src: bollywoodfest, name: "Bollywood Fest" },
-  { src: digitalID, name: "Digital ID" },
-  { src: nexus, name: "Nexus" },
-  { src: zainnew, name: "Zain" },
-  { src: tikona, name: "Tikona" },
-  { src: sigma, name: "Sigma" },
-  {src:SahanaHome, name:"SahanaHomes"}
-  { src: sanjivani, name: "Sanjivani Group" },
-  { src: hijama, name: "Hijama" },
-  { src: justbookus, name: "Just Book Us" },
-  { src: reSound, name: "Re Sound" },
-  { src: rishta, name: "Rishta" },
-  { src: shifa, name: "Shifa" },
-  { src: parkar, name: "Parkar" },
-  { src: vhalimos, name: "VHA Limos" },
-  { src: paiwala, name: "Paiwala" },
-  { src: logo22, name: "Client" },
+  { src: dockair, name: "dockair" },
+  { src:  biologo, name: "biologo" },
+  { src: aceWFM, name: "aceWFM" },
+  { src: bookyourresearch, name: "bookyourresearch" },
+  { src:caudate, name: "caudate" },
+  { src: communicare, name: "communicare" },
+  { src: dclLogo, name: "dclLogo" },
+  { src: dhLogo, name: "dhLogo" },
+  { src: dolocevita , name: "dolocevita" },
+  { src:Mpower, name: "Mpower" },
+  { src: navHealth, name: "navHealth" },
+  { src: pawpaa , name: "pawpaa" },
+  { src: urbenAcers, name: "urbenAcers" },
+  {src:SahanaHome, name:"SahanaHomes"},
+  // { src: sanjivani, name: "Sanjivani Group" },
+  // { src: hijama, name: "Hijama" },
+  // { src: justbookus, name: "Just Book Us" },
+  // { src: reSound, name: "Re Sound" },
+  // { src: rishta, name: "Rishta" },
+  // { src: shifa, name: "Shifa" },
+  // { src: parkar, name: "Parkar" },
+  // { src: vhalimos, name: "VHA Limos" },
+  // { src: paiwala, name: "Paiwala" },
+  // { src: logo22, name: "Client" },
 ];
 
 
