@@ -1,0 +1,298 @@
+
+/* ==========================================================================
+   Organizations - Client Logo Marquee
+   1. Design Tokens
+   2. Section & Layout
+   3. Label & Divider
+   4. Transparent Logos & Auto-Scrolling Marquee
+   5. Responsive Design
+   6. Accessibility
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens
+   -------------------------------------------------------------------------- */
+
+.organizations {
+  --org-navy: #0f172a;
+  --org-blue: #1f6feb;
+  --org-border: #e5e7eb;
+  --org-card-border: #eef2f7;
+
+  --org-card-w: 211px;
+  --org-card-h: 116px;
+  --org-space: 20px;
+  --org-pad-y: 12px;
+  --org-pad-x: 16px;
+  --org-radius: 14px;
+
+  --org-gutter: clamp(16px, 2.5vw, 48px);
+
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 28px var(--org-gutter);
+
+  background: linear-gradient(180deg, #ffffff 0%, #f6f9fe 100%);
+}
+
+.organizations *,
+.organizations *::before,
+.organizations *::after {
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   2. Section & Layout
+   -------------------------------------------------------------------------- */
+
+.organizations__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Label & Divider
+   -------------------------------------------------------------------------- */
+
+.organizations__label {
+  margin: 0;
+  flex-shrink: 0;
+  padding-left: 14px;
+
+  border-left: 3px solid var(--org-blue);
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+
+  color: var(--org-navy);
+}
+
+.organizations__divider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 60px;
+  background: var(--org-border);
+}
+
+/* --------------------------------------------------------------------------
+   4. Logo Marquee
+   -------------------------------------------------------------------------- */
+
+/* Viewport */
+
+.organizations__viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+
+  padding-block: 24px;
+  margin-block: -14px;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+
+/* Scrolling track
+   Requires two identical sets of logos in the JSX.
+*/
+
+.organizations__track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  width: max-content;
+  max-width: none;
+
+  animation: organizations-scroll var(--org-duration, 35s) linear infinite;
+
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Pause on hover or keyboard focus */
+
+.organizations__viewport:hover .organizations__track,
+.organizations__viewport:focus-within .organizations__track {
+  animation-play-state: paused;
+}
+
+/* Individual logo item */
+
+.organizations__item {
+  flex: 0 0 auto;
+
+  width: calc(var(--org-card-w) + var(--org-space) * 2);
+  padding-inline: var(--org-space);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo image - transparent background */
+
+.organizations__item img {
+  display: block;
+
+  width: var(--org-card-w);
+  height: var(--org-card-h);
+
+  object-fit: contain;
+  object-position: center;
+
+  padding: var(--org-pad-y) var(--org-pad-x);
+
+  /* Remove the white logo-card background */
+  background: transparent !important;
+
+  /* Preserve existing card styling */
+  /* border: 1px solid var(--org-card-border);
+  border-radius: var(--org-radius); */
+
+  /* box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05); */
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Hover effect */
+
+@media (hover: hover) and (pointer: fine) {
+  .organizations__item img:hover {
+    transform: translateY(-3px);
+
+    border-color: #d6e4fb;
+    border-color: color-mix(
+      in srgb,
+      var(--org-blue) 25%,
+      #ffffff
+    );
+
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+  }
+}
+
+/* Seamless infinite scrolling */
+
+@keyframes organizations-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Responsive Design
+   -------------------------------------------------------------------------- */
+
+/* Tablet */
+
+@media (max-width: 1023px) {
+  .organizations {
+    --org-card-w: 192px;
+    --org-card-h: 104px;
+    --org-space: 14px;
+  }
+
+  .organizations__inner {
+    gap: 20px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .organizations {
+    --org-card-w: 152px;
+    --org-card-h: 84px;
+    --org-space: 10px;
+
+    --org-pad-y: 10px;
+    --org-pad-x: 12px;
+    --org-radius: 12px;
+
+    padding-block: 22px;
+  }
+
+  .organizations__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .organizations__divider {
+    display: none;
+  }
+
+  .organizations__label {
+    font-size: 14.5px;
+  }
+
+  .organizations__label br {
+    display: none;
+  }
+
+  .organizations__viewport {
+    width: 100%;
+    flex: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Accessibility - Respect Reduced Motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .organizations__viewport {
+    overflow-x: auto;
+
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .organizations__track {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+
+  .organizations__item[aria-hidden="true"] {
+    display: none;
+  }
+
+  .organizations__item img {
+    transition: none;
+  }
+}
